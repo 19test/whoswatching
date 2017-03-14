@@ -55,6 +55,7 @@ group :test, :development do
   gem 'guard-rspec', require: false
   gem 'thin'
 	gem 'sextant'
+	gem 'guard-livereload', '~> 2.5', require: false
 end
 
 group :production do
@@ -64,3 +65,7 @@ group :production do
 end
 
 gem 'bootstrap-sass', '~> 3.1.1'
+gem 'faye'
+gem 'eventmachine'
+gem 'em-websocket'
+gem 'websocket-eventmachine-client'
