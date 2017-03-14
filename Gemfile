@@ -54,10 +54,11 @@ group :test, :development do
   gem 'pry'
   gem 'guard-rspec', require: false
   gem 'thin'
+	gem 'sextant'
 end
 
 group :production do
-  gem 'pg'
+  #gem 'pg'
   gem 'google-analytics-rails'
   gem 'rails_12factor'
 end
