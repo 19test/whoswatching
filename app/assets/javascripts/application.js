@@ -19,7 +19,7 @@
 
 $(document).ready(function(){
     //var dispatcher = new WebSocketRails('pure-dawn-3745.herokuapp.com/websocket');
-    var dispatcher = new WebSocketRails('192.168.1.53:3000');
+    var dispatcher = new WebSocketRails('localhost:3000/websocket');
     dispatcher.on_open = function(data) {
         console.log('Connection has been established: ', data);
         dispatcher.trigger('hello', 'Hello, there!');

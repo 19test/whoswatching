@@ -1,17 +1,21 @@
 class CounterController < WebsocketRails::BaseController
-  def hello
-    Viewer.increment_counter(:count, 1)
+	before_filter :set_viewer
 
-    @count = Viewer.first.count
+  def hello
+    @count = Viewer.last.increment_counter!
+
     WebsocketRails[:updates].trigger(:update, @count)
   end
 
   def goodbye
-    unless Viewer.first.count == 0
-      Viewer.decrement_counter(:count,1)
-    end
+    @count = Viewer.last.decrement_counter!
 
-    @count = Viewer.first.count
     WebsocketRails[:updates].trigger(:update, @count)
   end
+
+
+	private
+	def set_viewer
+		Viewer.create(count: 0) unless Viewer.last
+	end
 end
